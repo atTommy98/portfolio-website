@@ -16,12 +16,17 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+
+  html, body {
+    @apply dark:bg-zinc-900 bg-zinc-50
+  }
+
+  .light-text {
+    @apply text-zinc-100;
+  }
+
+  .dark-text {
+    @apply text-zinc-900;
+  }
 }
