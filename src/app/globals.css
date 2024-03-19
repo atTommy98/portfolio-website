@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  transition: all;
+  transition-duration: 200;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -10,6 +12,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    transition: all;
+    transition-duration: 200;
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -17,9 +21,9 @@
 }
 
 @layer base {
-
-  html, body {
-    @apply dark:bg-zinc-900 bg-zinc-50
+  html,
+  body {
+    @apply dark:bg-zinc-900 bg-zinc-50;
   }
 
   .light-text {
