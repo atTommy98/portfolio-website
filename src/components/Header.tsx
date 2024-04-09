@@ -19,9 +19,9 @@ export default function Header() {
   return (
     <header className="h-[7.5vh] min-h-fit w-full flex items-center justify-between px-2 md:px-8 bg-zinc-100 dark:bg-zinc-800 shadow-md text-sm md:text-xl">
       <div className="relative flex justify-center items-center overflow-hidden">
-        <h1 className="dark-text dark:light-text uppercase text-center font-bold">
+        <h3 className="dark-text dark:light-text uppercase text-center font-bold">
           Tommy Holt
-        </h1>
+        </h3>
       </div>
       <nav className="h-full flex justify-center items-center">
         {links.map((link) => (

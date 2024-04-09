@@ -26,12 +26,28 @@
     @apply dark:bg-zinc-900 bg-zinc-50;
   }
 
-  .light-text {
-    @apply text-zinc-100;
+  body {
+    @apply dark:text-zinc-100 text-zinc-900;
   }
 
-  .dark-text {
-    @apply text-zinc-900;
+  h1 {
+    @apply text-5xl sm:text-4xl md:text-5xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-lg md:text-xl lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-base sm:text-base md:text-lg lg:text-lg;
+  }
+
+  h6 {
+    @apply text-sm sm:text-xs md:text-sm lg:text-base;
+  }
+
+  a {
+    @apply text-sm sm:text-sm md:text-sm lg:text-base;
   }
 }
 
