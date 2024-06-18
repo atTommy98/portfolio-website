@@ -52,4 +52,15 @@
 }
 
 @layer components {
+  .card--title {
+    @apply text-3xl;
+  }
+
+  .card--subtitle {
+    @apply text-xl;
+  }
+
+  .card--text {
+    @apply text-sm;
+  }
 }

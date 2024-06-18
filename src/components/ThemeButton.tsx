@@ -41,7 +41,7 @@ export default function ThemeButton() {
   }, [loading, setLoading, setImage]);
 
   return (
-    <div className="relative h-1/2 m-2 cursor-pointer">
+    <div className="relative h-1/3 m-2 cursor-pointer">
       <Image
         alt="Moon or sun icon based on currently set theme"
         className={`relative h-full w-full dark:invert ${
