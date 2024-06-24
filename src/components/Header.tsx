@@ -17,19 +17,19 @@ export default function Header() {
   ];
 
   return (
-    <header className="h-[7.5vh] min-h-fit sticky top-0 w-full flex items-center justify-between px-2 md:px-8 bg-zinc-100 dark:bg-zinc-800 shadow-md text-sm md:text-xl">
+    <header className="h-[7.5vh] min-h-fit sticky top-0 w-full flex items-center justify-between px-2 md:px-8 bg-zinc-100 dark:bg-zinc-800 shadow-md">
       <div className="relative flex justify-center items-center overflow-hidden">
-        <h3 className="dark-text dark:light-text uppercase text-center font-bold">
+        <h3 className="dark-text dark:light-text uppercase text-center font-bold text-xs md:text-base lg:text-xl">
           Tommy Holt
         </h3>
       </div>
       <nav className="h-full flex justify-center items-center">
         {links.map((link) => (
-          <a
+          <h6
             key={link.id}
-            className="dark-text dark:light-text mx-2 md:mx-4 w-fit">
+            className="mx-[5px] md:mx-4 w-fit text-xs md:text-base lg:text-lg">
             {link.name}
-          </a>
+          </h6>
         ))}
         <ThemeButton />
       </nav>

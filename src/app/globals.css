@@ -23,7 +23,7 @@
 @layer base {
   html,
   body {
-    @apply dark:bg-zinc-900 bg-zinc-50;
+    @apply dark:bg-zinc-900 bg-zinc-100;
   }
 
   body {
@@ -31,40 +31,41 @@
   }
 
   h1 {
-    @apply text-5xl sm:text-4xl md:text-5xl lg:text-7xl;
+    @apply text-3xl md:text-4xl lg:text-5xl;
   }
 
   h2 {
-    @apply text-3xl sm:text-lg md:text-xl lg:text-3xl;
+    @apply text-xl md:text-2xl lg:text-3xl;
   }
 
   h3 {
-    @apply text-base sm:text-base md:text-lg lg:text-lg;
+    @apply text-base md:text-lg lg:text-xl;
+  }
+
+  h4 {
+    @apply text-xs md:text-sm lg:text-base;
   }
 
   h6 {
-    @apply text-sm sm:text-xs md:text-sm lg:text-base;
+    @apply text-sm md:text-base lg:text-lg;
+  }
+
+  p {
+    @apply text-[0.7rem] md:text-[0.8rem] lg:text-[0.9rem];
   }
 
   a {
-    @apply text-sm sm:text-sm md:text-sm lg:text-base;
+    @apply font-bold dark:text-zinc-100 text-zinc-900 hover:text-[#3b82f6] transition-all;
   }
 
-  .grey-text {
-    @apply text-neutral-400;
+  .subtext {
+    @apply text-zinc-400 dark:text-zinc-500;
+  }
+
+  .maintext {
+    @apply text-zinc-600 dark:text-zinc-400;
   }
 }
 
 @layer components {
-  .card--title {
-    @apply text-[1rem] m-0;
-  }
-
-  .card--subtitle {
-    @apply text-[.75rem];
-  }
-
-  .card--text {
-    @apply text-[0.75rem];
-  }
 }

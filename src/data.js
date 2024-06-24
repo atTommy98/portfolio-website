@@ -9,8 +9,14 @@ const Cards = [
   },
   {
     id: 2,
-    title: "Bootcamper · The School of Code",
+    title: "Junior Developer · Word360",
     subtitle: "September, 2020 - January, 2021",
+    content: `An intense 16-week programming boot-camp from zero to hero. An exciting opportunity to begin my journey intechnology. With a particular focus on teamwork, programming skills and confidence, SoC provided all the skillsnecessary to begin work in the technology industry.`,
+  },
+  {
+    id: 3,
+    title: "Bootcamper · The School of Code",
+    subtitle: "April, 2021 - October, 2021",
     content: `An intense 16-week programming boot-camp from zero to hero. An exciting opportunity to begin my journey intechnology. With a particular focus on teamwork, programming skills and confidence, SoC provided all the skillsnecessary to begin work in the technology industry.`,
   },
 ];
