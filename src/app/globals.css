@@ -49,18 +49,22 @@
   a {
     @apply text-sm sm:text-sm md:text-sm lg:text-base;
   }
+
+  .grey-text {
+    @apply text-neutral-400;
+  }
 }
 
 @layer components {
   .card--title {
-    @apply text-3xl;
+    @apply text-[1rem] m-0;
   }
 
   .card--subtitle {
-    @apply text-xl;
+    @apply text-[.75rem];
   }
 
   .card--text {
-    @apply text-sm;
+    @apply text-[0.75rem];
   }
 }

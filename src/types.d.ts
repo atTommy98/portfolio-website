@@ -3,3 +3,9 @@ declare module "*.mp3" {
   export default value;
 }
 declare module "use-sound";
+
+interface ExperienceCardProps {
+  title: string;
+  subtitle: string;
+  content: string;
+}
