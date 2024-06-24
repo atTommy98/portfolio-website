@@ -25,14 +25,14 @@ export default function About() {
           programming journey with the help of{" "}
           <a href="https://schoolofcode.co.uk/">The School of Code</a>.
         </h4>
-        <h4 className="maintext ">
+        <h4 className="maintext">
           Back in 2020 I graduated from university with a Bachelors degree in
           Chemistry and after completing my dissertation on the use of computer
           programming in Chemical analysis, I had the luxury of embarking on my
           programming journey with the help of{" "}
           <a href="https://schoolofcode.co.uk/">The School of Code</a>.
         </h4>
-        <div className="mt-12">
+        <div className="mt-6 flex flex-col items-center align-center">
           {Cards.map((card) => {
             return (
               <ExperienceCard

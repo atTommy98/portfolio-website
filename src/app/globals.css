@@ -59,11 +59,11 @@
   }
 
   .subtext {
-    @apply text-zinc-400 dark:text-zinc-500;
+    @apply text-zinc-400 dark:text-zinc-500 text-[0.7rem] md:text-[0.75rem] lg:text-[0.8rem] leading-3;
   }
 
   .maintext {
-    @apply text-zinc-600 dark:text-zinc-400;
+    @apply text-zinc-600 dark:text-zinc-300;
   }
 }
 
