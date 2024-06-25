@@ -9,3 +9,8 @@ interface ExperienceCardProps {
   subtitle: string;
   content: string;
 }
+
+interface SectionProps {
+  id: string;
+  ref: React.Ref;
+}

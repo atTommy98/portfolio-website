@@ -21,6 +21,16 @@
 }
 
 @layer base {
+  #About,
+  #Projects,
+  #Contact {
+    scroll-margin-top: 7.5vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   html,
   body {
     @apply dark:bg-zinc-900 bg-zinc-100;
@@ -55,7 +65,7 @@
   }
 
   a {
-    @apply font-bold dark:text-zinc-100 text-zinc-900 hover:text-[#3b82f6] transition-all;
+    @apply font-bold dark:text-zinc-100 text-zinc-900 hover:text-[#3b82f6] transition-colors duration-200 ease-in;
   }
 
   .subtext {
