@@ -75,6 +75,10 @@
   .maintext {
     @apply text-zinc-600 dark:text-zinc-300;
   }
+
+  .section-layout {
+    @apply w-full h-fit flex flex-col justify-center max-w-[800px] py-12 px-6;
+  }
 }
 
 @layer components {

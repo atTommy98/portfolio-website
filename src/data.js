@@ -1,4 +1,4 @@
-const Cards = [
+const ExperienceCards = [
   {
     id: 1,
     title: "Junior Software Engineer · Gravit8 Software",
@@ -19,4 +19,31 @@ const Cards = [
   },
 ];
 
-export { Cards };
+const ProjectCards = [
+  {
+    id: 1,
+    title: "",
+    subtitle: "",
+    content: ``,
+  },
+  {
+    id: 2,
+    title: "",
+    subtitle: "",
+    content: ``,
+  },
+  {
+    id: 3,
+    title: "",
+    subtitle: "",
+    content: ``,
+  },
+  {
+    id: 4,
+    title: "",
+    subtitle: "",
+    content: ``,
+  },
+];
+
+export { ExperienceCards, ProjectCards };
