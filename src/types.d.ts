@@ -12,5 +12,4 @@ interface ExperienceCardProps {
 
 interface SectionProps {
   id: string;
-  ref: React.Ref;
 }

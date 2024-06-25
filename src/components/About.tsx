@@ -1,9 +1,9 @@
 import ExperienceCard from "./ExperienceCard";
 import { Cards } from "../data";
 
-export default function About({ id, ref }: SectionProps) {
+export default function About({ id }: SectionProps) {
   return (
-    <div className="w-full h-fit flex justify-center" id={id} ref={ref}>
+    <section data-section className="w-full h-fit flex justify-center" id={id}>
       <div className="w-[80%] max-w-[800px] py-12 px-6">
         <h4 className="">👋 Welcome! I&apos;m Tommy. I&apos;m a...</h4>
         <h2 className="font-bold">
@@ -46,6 +46,6 @@ export default function About({ id, ref }: SectionProps) {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,5 +1,3 @@
-export default function Projects({ id, ref }: SectionProps) {
-  return (
-    <div className="w-full h-[92.5vh] bg-blue-500" id={id} ref={ref}></div>
-  );
+export default function Projects({ id }: SectionProps) {
+  return <section data-section className="w-full h-[150vh] bg-blue-500" id={id}></section>;
 }
