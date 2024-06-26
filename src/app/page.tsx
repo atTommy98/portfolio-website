@@ -2,27 +2,21 @@
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import About from "@/components/About";
+import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import { useEffect, useRef, useState } from "react";
+import Intro from "@/components/Intro";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<string>("About");
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
-
-  function handleScroll() {
-
-  }
-
   return (
     <ThemeProvider attribute="class">
       <Header />
-      <main className="flex min-h-screen flex-col items-center justify-between">
+      <main className="relative flex min-h-screen flex-col items-center justify-between">
+        <Intro id="Intro" />
         <About id="About" />
-        <Projects id="Projects"/>
+        <Experience id="Experience" />
+        <Projects id="Projects" />
       </main>
       <Footer />
     </ThemeProvider>

@@ -40,8 +40,8 @@ export default function ProjectCard({
       <ul className="mt-2 flex flex-wrap">
         {tags.map((tag) => {
           return (
-            <li key={tag} className="mr-1.5 mt-2">
-              <div className="flex subtext items-center rounded-full bg-blue-500 px-3 py-1 font-medium leading-5 text-zinc-50 shadow-md">
+            <li key={tag} className="mr-2 mt-2">
+              <div className="flex subtext items-center rounded-full bg-blue-700/70 dark:bg-blue-700/50 px-4 py-1 font-medium leading-5 text-cyan-400 dark:text-cyan-300">
                 {tag}
               </div>
             </li>

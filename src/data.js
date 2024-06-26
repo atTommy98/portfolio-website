@@ -1,4 +1,5 @@
 import SCHUHXNIKE from "./assets/SchuhXNike.png";
+import PORTFOLIO from "./assets/Portfolio.png";
 
 const ExperienceCards = [
   {
@@ -31,24 +32,15 @@ const ProjectCards = [
     link: "https://www.gravit8.co/portfolio/schuh/",
     colour: "#a7bed3",
   },
-  // {
-  //   id: 2,
-  //   title: "Schuh X Nike Booth",
-  //   content: `An interactive booth setup in the Schuh stores in London, this application was made to increase engagement and allows the user to create their own Nike shoe design and print a sticker`,
-  //   tags: ["React", "Node", "Electron"],
-  //   image: SCHUHXNIKE,
-  //   link: "https://www.gravit8.co/portfolio/schuh/",
-  //   colour: "#a7bed3",
-  // },
-  // {
-  //   id: 3,
-  //   title: "Schuh X Nike Booth",
-  //   content: `An interactive booth setup in the Schuh stores in London, this application was made to increase engagement and allows the user to create their own Nike shoe design and print a sticker`,
-  //   tags: ["React", "Node", "Electron"],
-  //   image: SCHUHXNIKE,
-  //   link: "https://www.gravit8.co/portfolio/schuh/",
-  //   colour: "#a7bed3",
-  // },
+  {
+    id: 2,
+    title: "Personal Portfolio",
+    content: `A portfolio website built with Next.js 14, Tailwind CSS and deployed with Vercel to showcase myself to the world!`,
+    tags: ["React", "Next JS", "Tailwind CSS"],
+    image: PORTFOLIO,
+    link: "https://tommyholt.dev",
+    colour: "#a7bed3",
+  },
 ];
 
 export { ExperienceCards, ProjectCards };

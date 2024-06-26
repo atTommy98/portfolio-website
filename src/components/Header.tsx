@@ -12,6 +12,10 @@ export default function Header() {
     },
     {
       id: 2,
+      name: "Experience",
+    },
+    {
+      id: 3,
       name: "Projects",
     },
   ];
