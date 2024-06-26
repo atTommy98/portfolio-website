@@ -22,7 +22,8 @@ export default function About({ id }: SectionProps) {
         If I&apos;m not sat at the computer (programming or indulging in the
         video game competitive scene) you might find me in the gym,
         producing/playing music or sat cross-legged digging into the science and
-        mathematics of how the world around us works.
+        mathematics of how the world around us works. You might also find me
+        travelling around doing crazy stuff like absailing down a webpage 😏
       </h4>
     </section>
   );
