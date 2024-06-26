@@ -20,9 +20,9 @@ export default function ProjectCard({
         className="absolute top-1 right-2 h-4 w-4 group-hover:text-blue-500"
         fill="currentColor">
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-          clip-rule="evenodd"></path>
+          clipRule="evenodd"></path>
       </svg>
       <div className="w-full flex">
         <div className="h-full w-[30%] flex items-center">

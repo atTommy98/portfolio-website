@@ -14,10 +14,6 @@ export default function Header() {
       id: 2,
       name: "Projects",
     },
-    // {
-    //   id: 3,
-    //   name: "Contact",
-    // },
   ];
 
   const handleScroll = () => {
@@ -61,20 +57,23 @@ export default function Header() {
           Tommy Holt
         </h3>
       </div>
-      <nav className="h-full flex justify-center items-center">
-        {links.map((link) => (
-          <h6
-            key={link.id}
-            className={`mx-[5px] md:mx-4 w-fit text-xs md:text-base lg:text-lg cursor-pointer transition-color duration-300 ease-in ${
-              activeSection === link.name ? "text-blue-500" : ""
-            }`}
-            onClick={() =>
-              document.getElementById(link.name)?.scrollIntoView()
-            }>
-            {link.name}
-          </h6>
-        ))}
-        <ThemeButton />
+      <nav className="h-full">
+        <ul className="h-full flex justify-center items-center">
+          {links.map((link) => (
+            <li key={link.id}>
+              <h6
+                className={`mx-[5px] md:mx-4 w-fit text-xs md:text-base lg:text-lg cursor-pointer transition-color duration-300 ease-in ${
+                  activeSection === link.name ? "text-blue-500" : ""
+                }`}
+                onClick={() =>
+                  document.getElementById(link.name)?.scrollIntoView()
+                }>
+                {link.name}
+              </h6>
+            </li>
+          ))}
+          <ThemeButton />
+        </ul>
       </nav>
     </header>
   );

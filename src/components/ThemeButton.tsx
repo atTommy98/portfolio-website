@@ -18,12 +18,12 @@ export default function ThemeButton() {
     setAnimate(true);
     if (theme === "dark") {
       setTheme("light");
-      setImage(SUN)
+      setImage(SUN);
       sound1();
     }
     if (theme === "light") {
       setTheme("dark");
-      setImage(MOON)
+      setImage(MOON);
       sound2();
     }
     theme === "dark" ? setTheme("light") : setTheme("dark");
