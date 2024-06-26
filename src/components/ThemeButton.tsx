@@ -41,18 +41,16 @@ export default function ThemeButton() {
   }, [loading, setLoading, setImage]);
 
   return (
-    <div className="relative h-1/3 m-2 cursor-pointer">
-      <Image
-        alt="Moon or sun icon based on currently set theme"
-        className={`relative h-full w-full dark:invert ${
-          animate && "animate-wiggle"
-        } opacity-80`}
-        width="100"
-        height="100"
-        src={image}
-        onClick={handleThemeToggle}
-        onAnimationEnd={() => setAnimate(false)}
-      />
-    </div>
+    <Image
+      alt="Moon or sun icon based on currently set theme"
+      className={`relative h-1/3 w-min dark:invert ${
+        animate && "animate-wiggle"
+      } opacity-80`}
+      width="100"
+      height="100"
+      src={image}
+      onClick={handleThemeToggle}
+      onAnimationEnd={() => setAnimate(false)}
+    />
   );
 }
