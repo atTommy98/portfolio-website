@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="h-fit p-4 flex">
+    <div className="h-fit p-4 flex mt-[3rem] shadow-center dark:shadow-neutral-700">
       <div className="w-fit flex items-center">
         <ul className="flex items-center">
           <li className="mr-5 text-xs shrink-0">
@@ -80,9 +80,10 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="w-full ">
+      <div className="w-full flex items-center justify-end">
         <p className="subtext">
-          Coded by yours truly. Built with Next.js 14 and Tailwind CSS, deployed with Vercel.
+          Coded by yours truly. Built with Next.js 14 and Tailwind CSS, deployed
+          with Vercel.
         </p>
       </div>
     </div>
