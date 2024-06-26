@@ -1,3 +1,5 @@
+import SCHUHXNIKE from "./assets/SchuhXNike.png";
+
 const ExperienceCards = [
   {
     id: 1,
@@ -22,28 +24,52 @@ const ExperienceCards = [
 const ProjectCards = [
   {
     id: 1,
-    title: "",
-    subtitle: "",
-    content: ``,
+    title: "Schuh X Nike Booth",
+    content: `An interactive booth setup in the Schuh stores in London, this application was made to increase engagement and allows the user to create their own Nike shoe design and print a sticker`,
+    tags: ["React", "Node", "Electron"],
+    image: SCHUHXNIKE,
+    link: "https://www.gravit8.co/portfolio/schuh/",
+    colour: "#a7bed3",
   },
   {
     id: 2,
-    title: "",
-    subtitle: "",
-    content: ``,
+    title: "Schuh X Nike Booth",
+    content: `An interactive booth setup in the Schuh stores in London, this application was made to increase engagement and allows the user to create their own Nike shoe design and print a sticker`,
+    tags: ["React", "Node", "Electron"],
+    image: SCHUHXNIKE,
+    link: "https://www.gravit8.co/portfolio/schuh/",
+    colour: "#a7bed3",
   },
   {
     id: 3,
-    title: "",
-    subtitle: "",
-    content: ``,
+    title: "Schuh X Nike Booth",
+    content: `An interactive booth setup in the Schuh stores in London, this application was made to increase engagement and allows the user to create their own Nike shoe design and print a sticker`,
+    tags: ["React", "Node", "Electron"],
+    image: SCHUHXNIKE,
+    link: "https://www.gravit8.co/portfolio/schuh/",
+    colour: "#a7bed3",
   },
-  {
-    id: 4,
-    title: "",
-    subtitle: "",
-    content: ``,
-  },
+  // {
+  //   id: 2,
+  //   title: "",
+  //   subtitle: "",
+  //   content: ``,
+  //   colour: "#ffcaaf",
+  // },
+  // {
+  //   id: 3,
+  //   title: "",
+  //   subtitle: "",
+  //   content: ``,
+  //   colour: "#c6e2e9",
+  // },
+  // {
+  //   id: 4,
+  //   title: "",
+  //   subtitle: "",
+  //   content: ``,
+  //   colour: "#dabdfe",
+  // },
 ];
 
 export { ExperienceCards, ProjectCards };

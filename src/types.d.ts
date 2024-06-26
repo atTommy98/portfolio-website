@@ -10,6 +10,15 @@ interface ExperienceCardProps {
   content: string;
 }
 
+interface ProjectCardProps {
+  title: string;
+  tags: string[];
+  image: any;
+  content: string;
+  link: string;
+  colour: string;
+}
+
 interface SectionProps {
   id: string;
 }

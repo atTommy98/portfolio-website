@@ -32,7 +32,7 @@ export default function About({ id }: SectionProps) {
         producing/playing music or sat cross-legged digging into the science and
         mathematics of how the world around us works.
       </h4>
-      <div className="grid grid-rows-3 gap-4 mt-8">
+      <div className="grid auto-rows-min gap-4 mt-8">
         {ExperienceCards.map((card) => {
           return (
             <ExperienceCard
