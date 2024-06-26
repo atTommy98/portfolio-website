@@ -5,11 +5,11 @@ export default function Intro({ id }: SectionProps) {
   return (
     <section data-section className="section-layout max-w-full p-0 h-[92.5vh]">
       <div className="flex w-full h-full">
-        <div className="relative w-1/2 h-full  flex flex-col items-start justify-center">
+        <div className="relative w-1/2 h-full">
           <Image
-            alt="Man sitting down"
+            alt="Me absailing"
             src={ME}
-            className="w-full max-w-[400px] flex items-center justify-center"
+            className="w-full max-w-[400px] sticky top-[10vh]"
           />
         </div>
         <div className="w-1/2 mr-4 flex flex-col items-start justify-center">
