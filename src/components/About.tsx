@@ -23,7 +23,8 @@ export default function About({ id }: SectionProps) {
         video game competitive scene) you might find me in the gym,
         producing/playing music or sat cross-legged digging into the science and
         mathematics of how the world around us works. You might also find me
-        travelling around doing crazy stuff like absailing down a webpage 😏
+        (Finances allowing) travelling around the world doing crazy stuff like
+        abseiling down webpages!
       </h4>
     </section>
   );
