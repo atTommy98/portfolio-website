@@ -1,5 +1,6 @@
 import SCHUHXNIKE from "./assets/SchuhXNike.png";
 import PORTFOLIO from "./assets/Portfolio.png";
+import CASECOBRA from "./assets/CaseCobra.png";
 
 const ExperienceCards = [
   {
@@ -25,6 +26,15 @@ const ExperienceCards = [
 const ProjectCards = [
   {
     id: 1,
+    title: "CaseCobra Clone (WIP)",
+    content: `A clone of the 'CaseCobra' ecommerce site. Includes auth, file uploads, secure payments, admin priveleges and a clean, modern UI.`,
+    tags: ["React", "Next JS", "Tailwind CSS", "Postgres"],
+    image: CASECOBRA,
+    link: "https://github.com/atTommy98/casecobra-clone",
+    colour: "#a7bed3",
+  },
+  {
+    id: 2,
     title: "Schuh X Nike Booth",
     content: `An interactive booth setup in the Schuh stores in London, this application was made to increase engagement and allows the user to create their own Nike shoe design and print a sticker`,
     tags: ["React", "Node", "Electron"],
@@ -33,7 +43,7 @@ const ProjectCards = [
     colour: "#a7bed3",
   },
   {
-    id: 2,
+    id: 3,
     title: "Personal Portfolio",
     content: `A portfolio website built with Next.js 14, Tailwind CSS and deployed with Vercel to showcase myself to the world!`,
     tags: ["React", "Next JS", "Tailwind CSS"],

@@ -54,7 +54,7 @@ export default function Header() {
 
   return (
     <header
-      className="h-[7.5vh] min-h-fit sticky top-0 w-full flex items-center justify-between px-2 md:px-8 bg-zinc-100 dark:bg-zinc-800 shadow-md dark:shadow-neutral-700 z-10"
+      className="h-[7.5vh] sticky top-0 w-full flex items-center justify-between px-2 md:px-14 shadow-md dark:shadow-neutral-700 z-[100] backdrop-blur-md"
       id="header">
       <div className="relative flex justify-center items-center">
         <h3 className="dark-text dark:light-text uppercase text-center font-bold text-xs md:text-base lg:text-xl">

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="h-fit p-4 flex mt-[3rem] shadow-center dark:shadow-neutral-700">
+    <footer className="h-fit p-4 flex shadow-center dark:shadow-neutral-700 z-[100]">
       
       <div className="w-full flex items-center justify-start">
         <p className="subtext text-[0.5rem]">
@@ -8,6 +8,6 @@ export default function Footer() {
           with Vercel. June 2024.
         </p>
       </div>
-    </div>
+    </footer>
   );
 }

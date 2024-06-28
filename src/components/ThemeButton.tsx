@@ -45,7 +45,7 @@ export default function ThemeButton() {
       alt="Moon or sun icon based on currently set theme"
       className={`relative h-[40%] w-min mx-4 dark:invert ${
         animate && "animate-wiggle"
-      } opacity-80`}
+      } opacity-80 cursor-pointer`}
       width="100"
       height="100"
       src={image}

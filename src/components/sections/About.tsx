@@ -1,6 +1,6 @@
 export default function About({ id }: SectionProps) {
   return (
-    <section data-section className="section-layout" id={id}>
+    <section data-section className="mb-8" id={id}>
       <h2 className="mb-2">About Me</h2>
       <h4 className="maintext mb-4">
         Back in 2020 I graduated from university with a bachelors degree in
