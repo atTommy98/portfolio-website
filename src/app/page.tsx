@@ -9,10 +9,17 @@ import Image from "next/image";
 import Intro from "@/components/sections/Intro";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
+import Page1 from "@/components/pages/Page1";
+import Page2 from "@/components/pages/Page2";
+import Page3 from "@/components/pages/Page3";
+
 export default function Home() {
   return (
     <ThemeProvider attribute="class">
-      <Header />
+      <Page1 />
+      <Page2>Tommmy Holt</Page2>
+      <Page3 />
+      {/* <Header />
       <Image
         alt="Me absailing"
         src="/ME.png"
@@ -26,7 +33,7 @@ export default function Home() {
         <Experience id="Experience" />
         <Projects id="Projects" />
       </MaxWidthWrapper>
-      <Footer />
+      <Footer /> */}
     </ThemeProvider>
   );
 }
