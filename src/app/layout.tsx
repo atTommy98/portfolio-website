@@ -1,15 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Lenis from "@/components/Lenis";
-import Header from "@/components/Header";
-
-export const metadata: Metadata = {
-  title: "Tommy Holt's Portfolio",
-  description: "",
-};
-
-const inter = Inter({ subsets: ["latin"] });
+import LenisProvider from "@/components/Lenis";
 
 export default function RootLayout({
   children,
@@ -18,9 +8,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Lenis>
-      <body className={inter.className}>{children}</body>
-      </Lenis>
+      <LenisProvider>
+        <body>{children}</body>
+      </LenisProvider>
     </html>
   );
 }

@@ -1,11 +1,20 @@
 "use client";
-import { ReactLenis } from "@studio-freight/react-lenis";
-import { PropsWithChildren } from "react";
 
-export default function Lenis({ children }: PropsWithChildren) {
+import { ReactLenis, useLenis } from "lenis/react";
+import { PropsWithChildren, useEffect } from "react";
+
+const LenisProvider = ({ children }: PropsWithChildren) => {
+  const lenis = useLenis();
+
   return (
-    <ReactLenis root options={{ smoothWheel: true, lerp: 0.1 }}>
+    <ReactLenis
+      className="h-full"
+      options={{ lerp: 0.08, smoothWheel: true }}
+      root
+    >
       {children}
     </ReactLenis>
   );
-}
+};
+
+export default LenisProvider;

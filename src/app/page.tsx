@@ -9,16 +9,23 @@ import Image from "next/image";
 import Intro from "@/components/sections/Intro";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-import Page1 from "@/components/pages/Page1";
 import Page2 from "@/components/pages/Page2";
 import Page3 from "@/components/pages/Page3";
+import Lenis from "@/components/Lenis";
+import ContentWrapper from "@/components/ContentWrapper";
 
 export default function Home() {
   return (
     <ThemeProvider attribute="class">
-      <Page1 />
-      <Page2>Tommmy Holt</Page2>
-      <Page3 /> 
+      <ContentWrapper backgroundColor='blue'>
+        <h1>Hello</h1>
+      </ContentWrapper>
+      <ContentWrapper backgroundColor='green'>
+        <h1>Hello</h1>
+      </ContentWrapper>
+      <ContentWrapper backgroundColor='pink'>
+        <h1>Hello</h1>
+      </ContentWrapper>
       {/* <Header />
       <Image
         alt="Me absailing"

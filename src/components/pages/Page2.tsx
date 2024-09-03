@@ -4,7 +4,7 @@ export default function Page2({ children }: any) {
     const ref = useRef(null);
 
   return (
-    <section ref={ref} className="sticky top-0 w-full h-[101vh] flex justify-start overflow-hidden bg-blue-500 p-12 rounded-t-2xl -translate-y-4">
+    <section ref={ref} className="sticky top-0 w-full h-[104vh] flex justify-start overflow-hidden bg-blue-500 p-12 rounded-t-2xl -translate-y-[2vh]">
       {/* <span
         style={{
           transform: isInView ? "none" : "translateX(-200px)",
