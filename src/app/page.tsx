@@ -18,7 +18,7 @@ export default function Home() {
     <ThemeProvider attribute="class">
       <Page1 />
       <Page2>Tommmy Holt</Page2>
-      <Page3 />
+      <Page3 /> 
       {/* <Header />
       <Image
         alt="Me absailing"
