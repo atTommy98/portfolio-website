@@ -2,15 +2,17 @@ export default function Intro({ id }: SectionProps) {
   return (
     <section
       data-section
-      className="flex flex-col items-center justify-center text-center mb-28">
-      <h1 className="font-bold uppercase mb-12">
-        I&apos;m <span className="bg-blue-500 text-white p-px">Tommy</span>
+      className="relative flex min-h-[calc(100svh-7.5vh)] flex-col items-center justify-center text-center">
+      <h1 className="fade-up font-bold uppercase mb-12">
+        I&apos;m <span className="hero-highlight">Tommy</span>
       </h1>
-      <h1 className="font-bold uppercase text-blue-500 mb-2 max-w-sm lg:max-w-lg">
+      <h1 className="fade-up [animation-delay:120ms] font-bold uppercase text-blue-500 mb-2 max-w-sm lg:max-w-lg">
         FULL STACK WEB DEVELOPER
       </h1>
-      <p className="subtext mb-8">React, Node, TypeScript</p>
-      <div className="w-fit flex items-center">
+      <p className="fade-up [animation-delay:240ms] subtext mb-8">
+        React, React Native, Node, TypeScript
+      </p>
+      <div className="fade-up [animation-delay:360ms] w-fit flex items-center">
         <ul className="flex items-center">
           <li className="mr-5 text-xs shrink-0">
             <a
@@ -89,6 +91,21 @@ export default function Intro({ id }: SectionProps) {
           </li>
         </ul>
       </div>
+      <a
+        href="#About"
+        aria-label="Scroll to the About section"
+        className="absolute bottom-6 text-zinc-400 hover:text-blue-500 dark:text-zinc-500 md:bottom-10 animate-bounce">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="h-6 w-6"
+          aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
     </section>
   );
 }

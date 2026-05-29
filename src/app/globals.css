@@ -22,6 +22,7 @@
 
 @layer base {
   #About,
+  #Experience,
   #Projects,
   #Contact {
     scroll-margin-top: 7.5vh;
@@ -45,7 +46,7 @@
   }
 
   h2 {
-    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply text-xl md:text-2xl lg:text-3xl font-bold uppercase tracking-wide mb-6 md:mb-8;
   }
 
   h3 {
@@ -78,4 +79,53 @@
 }
 
 @layer components {
+  /* Animated highlight behind "Tommy" in the hero — a light streak that
+     periodically sweeps across the blue box. */
+  .hero-highlight {
+    padding: 0 0.12em;
+    background-image: linear-gradient(
+      110deg,
+      #3b82f6 0%,
+      #3b82f6 42%,
+      #bfdbfe 50%,
+      #3b82f6 58%,
+      #3b82f6 100%
+    );
+    background-size: 300% 100%;
+    background-repeat: no-repeat;
+    animation: shine 5s cubic-bezier(.25,.58,.76,.45) infinite;
+  }
+
+  /* Entrance animation for hero elements (plays on load). */
+  .fade-up {
+    animation: fadeUp 0.7s ease-out both;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 150% 0;
+  }
+  40%,
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-highlight,
+  .fade-up {
+    animation: none;
+  }
 }

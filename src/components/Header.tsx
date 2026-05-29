@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ThemeButton from "./ThemeButton";
 
 export default function Header() {
-  const [activeSection, setActiveSection] = useState<string | null>("About");
-  const sections = useRef<any>([]);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const links = [
     {
@@ -20,36 +19,30 @@ export default function Header() {
     },
   ];
 
-  const handleScroll = () => {
-    sections.current.forEach((section: any) => {
-      const header = document.querySelector("#header");
-      let headerHeight;
-      if (header !== null && header instanceof HTMLElement) {
-        headerHeight = header.offsetHeight;
-      }
-      const sectionOffsetTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-
-      let windowBottom;
-      if (headerHeight) {
-        windowBottom = window.scrollY + headerHeight + window.innerHeight;
-        if (
-          windowBottom > sectionOffsetTop &&
-          windowBottom < sectionOffsetTop + sectionHeight
-        ) {
-          setActiveSection(section.id);
-        }
-      }
-    });
-  };
-
   useEffect(() => {
-    sections.current = document.querySelectorAll("[data-section]");
-    window.addEventListener("scroll", handleScroll);
+    const sections = Array.from(document.querySelectorAll("[data-section]"));
+    const header = document.querySelector("#header");
+    const headerHeight =
+      header instanceof HTMLElement ? header.offsetHeight : 0;
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id || null);
+          }
+        });
+      },
+      {
+        // Account for the sticky header at the top, and only activate a
+        // section once it has scrolled into the upper portion of the viewport.
+        rootMargin: `-${headerHeight + 8}px 0px -55% 0px`,
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -62,21 +55,33 @@ export default function Header() {
         </h3>
       </div>
       <nav className="h-full">
-        <ul className="h-full flex justify-center items-center">
+        <ul className="h-full flex justify-center items-stretch">
           {links.map((link) => (
-            <li key={link.id}>
-              <h6
-                className={`mx-[5px] md:mx-4 w-fit text-xs md:text-base lg:text-lg cursor-pointer transition-color duration-300 ease-in ${
-                  activeSection === link.name ? "text-blue-500" : ""
-                }`}
+            <li key={link.id} className="h-full">
+              <button
+                type="button"
                 onClick={() =>
                   document.getElementById(link.name)?.scrollIntoView()
-                }>
-                {link.name}
-              </h6>
+                }
+                className={`group relative z-10 flex h-full items-center px-2 md:px-4 text-xs md:text-base lg:text-lg cursor-pointer transition-colors duration-300 ease-in hover:text-blue-500 ${
+                  activeSection === link.name ? "text-blue-500" : ""
+                }`}>
+                <span className="relative">
+                  {link.name}
+                  <span
+                    className={`pointer-events-none absolute -bottom-1 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-blue-500 transition-all duration-300 ease-out ${
+                      activeSection === link.name
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </span>
+              </button>
             </li>
           ))}
-          <ThemeButton />
+          <li className="h-full">
+            <ThemeButton />
+          </li>
         </ul>
       </nav>
     </header>

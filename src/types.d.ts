@@ -6,8 +6,7 @@ declare module "use-sound";
 
 interface ExperienceCardProps {
   title: string;
-  subtitle: string;
-  content: string;
+  content: string[];
 }
 
 interface ProjectCardProps {

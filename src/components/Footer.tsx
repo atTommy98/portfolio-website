@@ -1,11 +1,12 @@
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="h-fit p-4 flex shadow-center dark:shadow-neutral-700 z-[100]">
-      
-      <div className="w-full flex items-center justify-start">
-        <p className="subtext text-[0.5rem]">
-          Coded by yours truly. Built with Next.js 14 and Tailwind CSS, deployed
-          with Vercel. June 2024.
+    <footer className="mt-16 border-t border-zinc-200 dark:border-zinc-800">
+      <div className="max-w-screen-lg mx-auto w-full px-4 md:px-24 py-6 flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+        <p className="subtext">{year} Built by Yours Truly</p>
+        <p className="subtext">
+          Built with Next.js &amp; Tailwind CSS, deployed on Vercel.
         </p>
       </div>
     </footer>
