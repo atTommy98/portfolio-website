@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Tag from "./Tag";
 
+// Renders one project as a card with a preview image, blurb and tag pills.
 export default function ProjectCard({
   title,
   content,
@@ -12,6 +13,7 @@ export default function ProjectCard({
   colour,
   fit = "cover",
 }: ProjectCardProps) {
+  // Opens the project in a new tab, ignoring cards that have no link.
   function handleClick(link: string) {
     if (!link) return;
     window.open(link, "_blank");
@@ -26,6 +28,7 @@ export default function ProjectCard({
       }`}
       onClick={() => handleClick(link)}
     >
+      {/* Arrow shown only on cards that lead somewhere. */}
       {hasLink && (
         <svg
           className="absolute top-1 right-2 h-4 w-4 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-500"
@@ -38,6 +41,7 @@ export default function ProjectCard({
           ></path>
         </svg>
       )}
+      {/* Fixed-height row so every card's preview box is the same size. */}
       <div className="grid h-32 w-full grid-cols-10">
         <div className="col-span-2 flex items-center justify-center overflow-hidden border-2 border-neutral-500 rounded-md bg-zinc-900">
           {image ? (

@@ -7,10 +7,7 @@ import type { SlotOptions } from "slot-text";
 
 const POOL = "0123456789";
 
-/* skipUnchanged leaves graphemes that match at the same index alone, so only
-   the characters the scramble actually altered — the digits — roll. Safe here
-   because the scramble is the same length as the value, which is the
-   positional alignment the option depends on. */
+// Roll settings: only characters the scramble changed move, taking 900ms to land.
 const OPTIONS: SlotOptions = {
   direction: "down",
   skipUnchanged: true,
@@ -19,8 +16,7 @@ const OPTIONS: SlotOptions = {
   exitOffset: 120,
 };
 
-/* Every digit is replaced by a different digit, so none of them can be left
-   static by skipUnchanged after landing on their own value by chance. */
+// Replaces each digit with a different digit and leaves everything else alone.
 function scramble(value: string): string {
   return Array.from(value)
     .map((char) => {
@@ -31,10 +27,7 @@ function scramble(value: string): string {
     .join("");
 }
 
-/* slot-text only animates when `text` changes after mount, so a roll on scroll
-   means mounting with a scramble and flipping to the real value a beat later.
-   Until then this stays plain text, which keeps the server output and the
-   no-JS fallback honest. */
+// Rolls a value's digits into place the first time it scrolls into view.
 export default function SlotAnimation({
   value,
   className,
@@ -46,6 +39,7 @@ export default function SlotAnimation({
   const [rolling, setRolling] = useState(false);
   const [text, setText] = useState(value);
 
+  // Scrambles the digits and starts the roll once the value scrolls into view.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -59,17 +53,18 @@ export default function SlotAnimation({
         setText(scramble(value));
         setRolling(true);
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, [value]);
 
+  // Restores the real value a beat later, which is the change slot-text animates.
   useEffect(() => {
     if (!rolling || text === value) return;
 
-    const timer = window.setTimeout(() => setText(value), 80);
+    const timer = window.setTimeout(() => setText(value), 200);
     return () => window.clearTimeout(timer);
   }, [rolling, text, value]);
 

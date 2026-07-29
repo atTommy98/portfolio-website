@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import ExperienceCard from "./ExperienceCard";
 import { ExperienceCards } from "../constants/experience";
 
+// Renders the roles as a vertical timeline whose line and dots fill as you scroll.
 export default function ExperienceTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -18,6 +19,7 @@ export default function ExperienceTimeline() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    // Show the timeline fully drawn when reduced motion is requested.
     if (reduce) {
       setVisible(ExperienceCards.map(() => true));
       setLit(ExperienceCards.map(() => true));
@@ -25,6 +27,7 @@ export default function ExperienceTimeline() {
       return;
     }
 
+    // Grows the fill line to an anchor 55% down the viewport, once per frame.
     let raf = 0;
     const update = () => {
       raf = 0;
@@ -34,6 +37,7 @@ export default function ExperienceTimeline() {
       const anchor = window.innerHeight * 0.55;
       const progress = anchor - rect.top;
       setFill(Math.max(0, Math.min(rect.height, progress)));
+      // Lights each dot as the fill line reaches its centre.
       setLit((prev) => {
         const next = rowRefs.current.map(
           (row) => !!row && progress >= row.offsetTop + 11

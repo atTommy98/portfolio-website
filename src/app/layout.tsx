@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: "",
 };
 
+// Root document shell applying the site font to every page.
 export default function RootLayout({
   children,
 }: {

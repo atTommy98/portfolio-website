@@ -1,3 +1,4 @@
+// Full-height hero with name, role, stack and contact links.
 export default function Intro({ id }: SectionProps) {
   return (
     <section

@@ -6,8 +6,7 @@ import SlotAnimation from "../SlotAnimation";
 import Tag from "../Tag";
 import { technologies } from "../../constants/technologies";
 
-/* roll marks the tiles whose figures are the point. The other two contain
-   digits too (F1, P3RFORM), and those are names rather than numbers. */
+// Headline figures for the tiles; roll marks the two whose numbers animate.
 const facts = [
   { value: "4+ yrs", label: "commercial experience", roll: true },
   { value: "30+", label: "production apps shipped", roll: true },
@@ -23,6 +22,7 @@ const facts = [
   },
 ];
 
+// About section: a lead line, the headline figures, the stack, then tabbed detail.
 export default async function About({ id }: SectionProps) {
   const lastPush = await getLastPush();
 

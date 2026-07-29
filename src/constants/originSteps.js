@@ -1,6 +1,4 @@
-/* Every step carries an icon key, including the ones without an icon:
-   TypeScript infers a union when object shapes differ across an array, and
-   reading step.icon then fails on the members missing it. */
+// The steps from chemistry degree to first dev role, shown on the About Route tab.
 const originSteps = [
   {
     year: "2020",

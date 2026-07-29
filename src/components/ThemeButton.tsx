@@ -7,6 +7,7 @@ import Image from "next/image";
 import SUN from "../assets/SUN.svg";
 import MOON from "../assets/MOON.svg";
 
+// Toggles between light and dark, swapping the icon and playing a click.
 export default function ThemeButton() {
   const [animate, setAnimate] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -15,8 +16,10 @@ export default function ThemeButton() {
   const [sound1] = useSound("/sounds/CLICK1.mp3", { volume: 0.25 });
   const [sound2] = useSound("/sounds/CLICK2.mp3", { volume: 0.25 });
 
+  // The resolved theme is only known on the client, so wait for mount to read it.
   useEffect(() => setMounted(true), []);
 
+  // Flips the theme and plays a different click for each direction.
   function handleThemeToggle() {
     setAnimate(true);
     if (resolvedTheme === "dark") {

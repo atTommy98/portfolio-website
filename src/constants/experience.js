@@ -1,3 +1,4 @@
+// Roles and their bullet points, newest first, shown on the experience timeline.
 const ExperienceCards = [
   {
     id: 1,

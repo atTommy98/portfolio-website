@@ -8,6 +8,7 @@ export type AboutTab = {
   content: ReactNode;
 };
 
+// Tab strip showing one panel at a time, with optional content opposite the tabs.
 export default function AboutTabs({
   tabs,
   trailing,
@@ -16,24 +17,6 @@ export default function AboutTabs({
   trailing?: ReactNode;
 }) {
   const [active, setActive] = useState(0);
-
-  /* Arrow keys move between tabs, per the WAI-ARIA tabs pattern. Only the
-     selected tab stays in the tab order so keyboard users aren't forced
-     through every label to reach the panel. */
-  function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
-    const last = tabs.length - 1;
-    let next: number | null = null;
-
-    if (event.key === "ArrowRight") next = active === last ? 0 : active + 1;
-    if (event.key === "ArrowLeft") next = active === 0 ? last : active - 1;
-    if (event.key === "Home") next = 0;
-    if (event.key === "End") next = last;
-
-    if (next === null) return;
-    event.preventDefault();
-    setActive(next);
-    document.getElementById(`tab-${tabs[next].id}`)?.focus();
-  }
 
   const current = tabs[active];
 
@@ -54,7 +37,6 @@ export default function AboutTabs({
               aria-controls={`panel-${tab.id}`}
               tabIndex={active === index ? 0 : -1}
               onClick={() => setActive(index)}
-              onKeyDown={handleKeyDown}
               className={`px-1 pb-3 text-xs font-bold uppercase tracking-wide transition-colors duration-200 md:text-sm ${
                 active === index
                   ? "text-blue-500"
@@ -64,8 +46,7 @@ export default function AboutTabs({
             </button>
           ))}
 
-          {/* Equal-width tabs mean the indicator can slide by index alone,
-              with no measuring or resize handling. */}
+          {/* Underline that slides across to sit beneath the active tab. */}
           <span
             aria-hidden="true"
             style={{ transform: `translateX(${active * 100}%)` }}
@@ -75,9 +56,7 @@ export default function AboutTabs({
 
         {trailing ? <div className="shrink-0 pb-3">{trailing}</div> : null}
       </div>
-
-      {/* Keyed on the tab id so the panel remounts and replays its entrance,
-          which also restarts the route animation each time it's opened. */}
+      {/* Panel for the active tab, remounted on each switch so its entrance replays. */}
       <div
         key={current.id}
         id={`panel-${current.id}`}

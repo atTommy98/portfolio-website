@@ -2,6 +2,7 @@ import SCHUHXNIKE from "../assets/SchuhXNike.png";
 import PORTFOLIO from "../assets/Portfolio.png";
 import P3RFORM from "../assets/P3RFORM.svg";
 
+// Projects shown as cards, each with its tags, preview image, link and accent colour.
 const ProjectCards = [
   {
     id: 4,

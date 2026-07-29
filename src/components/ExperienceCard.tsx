@@ -1,3 +1,4 @@
+// Renders one role's title and its bullet points.
 export default function ExperienceCard({
   title,
   content,

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { originSteps } from "../constants/originSteps";
 
+// Draws the flask or code-bracket glyph for a step, or nothing when it has neither.
 function StepIcon({ name }: { name?: string | null }) {
   if (!name) return null;
 
@@ -33,6 +34,7 @@ function StepIcon({ name }: { name?: string | null }) {
   );
 }
 
+// Lists the steps from chemistry degree to first dev role, staggered in on scroll.
 export default function OriginRoute() {
   const ref = useRef<HTMLDivElement>(null);
   const [drawn, setDrawn] = useState(false);
@@ -41,11 +43,13 @@ export default function OriginRoute() {
     const el = ref.current;
     if (!el) return;
 
+    // Show the finished state straight away when reduced motion is requested.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setDrawn(true);
       return;
     }
 
+    // Start the stagger once the route scrolls into view.
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

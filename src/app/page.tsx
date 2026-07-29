@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Intro from "@/components/sections/Intro";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
+// Single-page layout: hero, then each section in reading order.
 export default function Home() {
   return (
     <Providers>

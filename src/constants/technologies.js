@@ -1,5 +1,4 @@
-/* Grouped by layer so the list evidences the "web, mobile and desktop,
-   end to end" claim the section opens with, rather than reading as a dump. */
+// Technologies grouped by layer, listed as pills in the About section.
 const technologies = [
   {
     group: "Front-end",

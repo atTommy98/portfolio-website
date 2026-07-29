@@ -10,9 +10,7 @@ type GitHubEvent = {
   created_at: string;
 };
 
-/* Revalidated hourly rather than fetched per request: the copy reads in
-   whole hours anyway, and it keeps us well inside GitHub's unauthenticated
-   rate limit no matter how much traffic the page gets. */
+// Revalidated hourly rather than fetched per request
 export async function getLastPush(): Promise<Date | null> {
   try {
     const response = await fetch(
@@ -34,9 +32,8 @@ export async function getLastPush(): Promise<Date | null> {
   }
 }
 
+// Shows a live dot and how long ago the last push landed, or nothing if unknown.
 export default function LastShipped({ lastPush }: { lastPush: Date | null }) {
-  /* Render nothing rather than a stale or empty state if GitHub is
-     unreachable at build time. */
   if (!lastPush) return null;
 
   return (

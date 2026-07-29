@@ -1,3 +1,4 @@
+// Site footer with the current year and build credits.
 export default function Footer() {
   const year = new Date().getFullYear();
 

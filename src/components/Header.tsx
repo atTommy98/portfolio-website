@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ThemeButton from "./ThemeButton";
 
+// Sticky nav that highlights whichever section is currently on screen.
 export default function Header() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -21,6 +22,7 @@ export default function Header() {
     },
   ];
 
+  // Tracks which section is in view so its nav link can be marked active.
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll("[data-section]"));
     const header = document.querySelector("#header");
@@ -70,6 +72,7 @@ export default function Header() {
                 }`}>
                 <span className="relative">
                   {link.name}
+                  {/* Underline that fills on hover and stays filled while active. */}
                   <span
                     className={`pointer-events-none absolute -bottom-1 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-blue-500 transition-all duration-300 ease-out ${
                       activeSection === link.name

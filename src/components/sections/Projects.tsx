@@ -2,6 +2,7 @@ import ProjectCard from "../ProjectCard";
 import Reveal from "../Reveal";
 import { ProjectCards } from "../../constants/projects";
 
+// Projects section listing each project card, revealed one after another.
 export default function Projects({ id }: SectionProps) {
   return (
     <section data-section className="mb-8" id={id}>
