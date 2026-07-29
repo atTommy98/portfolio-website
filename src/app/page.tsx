@@ -1,5 +1,4 @@
-"use client";
-import { ThemeProvider } from "next-themes";
+import Providers from "./providers";
 import Header from "@/components/Header";
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
@@ -10,7 +9,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 export default function Home() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark">
+    <Providers>
       <Header />
       <MaxWidthWrapper className="">
         <Intro id="Intro" />
@@ -19,6 +18,6 @@ export default function Home() {
         <Projects id="Projects" />
       </MaxWidthWrapper>
       <Footer />
-    </ThemeProvider>
+    </Providers>
   );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function ProjectCard({
@@ -36,7 +38,7 @@ export default function ProjectCard({
         </svg>
       )}
       <div className="grid h-32 w-full grid-cols-10">
-        <div className="col-span-3 flex items-center justify-center overflow-hidden border-2 border-neutral-400 bg-zinc-900">
+        <div className="col-span-2 flex items-center justify-center overflow-hidden border-2 border-neutral-500 rounded-md bg-zinc-900">
           {image ? (
             <Image
               alt={`${title} preview`}
