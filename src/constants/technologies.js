@@ -1,22 +1,22 @@
+/* Grouped by layer so the list evidences the "web, mobile and desktop,
+   end to end" claim the section opens with, rather than reading as a dump. */
 const technologies = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node",
-  "Express",
-  "Tailwind",
-  "React Native",
-  "Expo",
-  "AWS",
-  "SQL",
-  "Terraform",
-  "Laravel",
-  "Statamic",
-  "Electron",
-  "Docker",
-  "Python",
-  "Three.js",
-  "Unity",
+  {
+    group: "Front-end",
+    items: ["TypeScript", "React", "Next.js", "Tailwind", "Three.js"],
+  },
+  {
+    group: "Mobile & desktop",
+    items: ["React Native", "Expo", "Electron", "Unity"],
+  },
+  {
+    group: "Back-end",
+    items: ["Node", "Express", "Laravel", "Statamic", "Python", "SQL"],
+  },
+  {
+    group: "Infrastructure",
+    items: ["AWS", "Terraform", "Docker"],
+  },
 ];
 
 export { technologies };

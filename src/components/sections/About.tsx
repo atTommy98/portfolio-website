@@ -95,11 +95,20 @@ export default async function About({ id }: SectionProps) {
 
       <Reveal delay={250}>
         <p className="subtext mb-3 uppercase tracking-wide">Technologies</p>
-        <ul className="mb-8 flex flex-wrap gap-2">
-          {technologies.map((tech) => (
-            <Tag key={tech}>{tech}</Tag>
+        <div className="mb-8 flex flex-col gap-3">
+          {technologies.map(({ group, items }) => (
+            <div key={group} className="md:flex md:items-start md:gap-4">
+              <p className="subtext mb-2 font-semibold leading-normal md:mb-0 md:w-36 md:shrink-0 md:pt-1">
+                {group}
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {items.map((tech) => (
+                  <Tag key={tech}>{tech}</Tag>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </Reveal>
 
       <Reveal delay={300}>
