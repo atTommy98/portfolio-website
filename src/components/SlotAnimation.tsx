@@ -14,6 +14,9 @@ const POOL = "0123456789";
 const OPTIONS: SlotOptions = {
   direction: "down",
   skipUnchanged: true,
+  duration: 900,
+  stagger: 140,
+  exitOffset: 120,
 };
 
 /* Every digit is replaced by a different digit, so none of them can be left

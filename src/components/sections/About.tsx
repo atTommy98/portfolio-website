@@ -4,11 +4,17 @@ import OriginRoute from "../OriginRoute";
 import Reveal from "../Reveal";
 import SlotAnimation from "../SlotAnimation";
 
+/* roll marks the tiles whose figures are the point. The other two contain
+   digits too (F1, P3RFORM), and those are names rather than numbers. */
 const facts = [
-  { value: "4+ yrs", label: "commercial experience" },
-  { value: "30+", label: "production apps shipped" },
-  { value: "Web + Mobile + Desktop", label: "platforms owned end to end" },
-  { value: "Dyson, F1, Nike, LEGO, P3RFORM", label: "brands built for" },
+  { value: "4+ yrs", label: "commercial experience", roll: true },
+  { value: "30+", label: "production apps shipped", roll: true },
+  {
+    value: "Web + Mobile + Desktop",
+    label: "platforms owned end to end",
+    roll: false,
+  },
+  { value: "Dyson, F1, Nike, LEGO, P3RFORM", label: "brands built for", roll: false },
 ];
 
 export default async function About({ id }: SectionProps) {
@@ -66,7 +72,11 @@ export default async function About({ id }: SectionProps) {
               key={fact.label}
               className="rounded-xl border border-zinc-200 bg-white/60 p-4 dark:border-zinc-800 dark:bg-zinc-900/40">
               <p className="text-sm font-bold md:text-base lg:text-lg">
-                <SlotAnimation value={fact.value} />
+                {fact.roll ? (
+                  <SlotAnimation value={fact.value} />
+                ) : (
+                  fact.value
+                )}
               </p>
               <p className="subtext mt-2 leading-normal text-blue-500 dark:text-blue-500">
                 {fact.label}
