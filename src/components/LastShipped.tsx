@@ -1,3 +1,8 @@
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
 const GITHUB_USER = "atTommy98";
 
 type GitHubEvent = {
@@ -15,7 +20,7 @@ export async function getLastPush(): Promise<Date | null> {
       {
         headers: { Accept: "application/vnd.github+json" },
         next: { revalidate: 3600 },
-      }
+      },
     );
 
     if (!response.ok) return null;
@@ -29,20 +34,6 @@ export async function getLastPush(): Promise<Date | null> {
   }
 }
 
-function timeAgo(date: Date): string {
-  const minutes = Math.round((Date.now() - date.getTime()) / 60000);
-  if (minutes < 60) return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
-
-  const hours = Math.round(minutes / 60);
-  if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
-
-  const days = Math.round(hours / 24);
-  if (days < 30) return `${days} day${days === 1 ? "" : "s"} ago`;
-
-  const months = Math.round(days / 30);
-  return `${months} month${months === 1 ? "" : "s"} ago`;
-}
-
 export default function LastShipped({ lastPush }: { lastPush: Date | null }) {
   /* Render nothing rather than a stale or empty state if GitHub is
      unreachable at build time. */
@@ -54,7 +45,7 @@ export default function LastShipped({ lastPush }: { lastPush: Date | null }) {
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75 motion-reduce:animate-none" />
         <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
       </span>
-      Last shipped {timeAgo(lastPush)}
+      Last shipped {dayjs(lastPush).fromNow()}
     </p>
   );
 }

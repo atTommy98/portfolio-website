@@ -2,7 +2,7 @@ import AboutTabs, { AboutTab } from "../AboutTabs";
 import LastShipped, { getLastPush } from "../LastShipped";
 import OriginRoute from "../OriginRoute";
 import Reveal from "../Reveal";
-import SlotText from "../SlotText";
+import SlotFact from "../SlotFact";
 
 /* Scan-level facts — the bit a recruiter actually reads before deciding
    whether to scroll. Every figure is drawn from ExperienceCards in data.js. */
@@ -73,7 +73,7 @@ export default async function About({ id }: SectionProps) {
               key={fact.label}
               className="rounded-xl border border-zinc-200 bg-white/60 p-4 dark:border-zinc-800 dark:bg-zinc-900/40">
               <p className="text-sm font-bold md:text-base lg:text-lg">
-                <SlotText value={fact.value} />
+                <SlotFact value={fact.value} />
               </p>
               <p className="subtext mt-2 leading-normal text-blue-500 dark:text-blue-500">
                 {fact.label}
