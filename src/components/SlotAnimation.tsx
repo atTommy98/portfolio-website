@@ -7,13 +7,18 @@ import type { SlotOptions } from "slot-text";
 
 const POOL = "0123456789";
 
-// Roll settings: only characters the scramble changed move, taking 900ms to land.
+// How many faces flick past, and how long each one is held, before the value lands.
+const ROLL_STEPS = 8;
+const STEP_MS = 130;
+
+// Roll settings: only characters the scramble changed move, and each face lands
+// inside a single step so the faces read as one continuous reel.
 const OPTIONS: SlotOptions = {
   direction: "down",
   skipUnchanged: true,
-  duration: 900,
-  stagger: 140,
-  exitOffset: 120,
+  duration: 260,
+  stagger: 40,
+  exitOffset: 30,
 };
 
 // Replaces each digit with a different digit and leaves everything else alone.
@@ -60,13 +65,27 @@ export default function SlotAnimation({
     return () => observer.disconnect();
   }, [value]);
 
-  // Restores the real value a beat later, which is the change slot-text animates.
+  // Steps through fresh digits on a timer, then lands on the real value.
   useEffect(() => {
-    if (!rolling || text === value) return;
+    if (!rolling) return;
 
-    const timer = window.setTimeout(() => setText(value), 200);
-    return () => window.clearTimeout(timer);
-  }, [rolling, text, value]);
+    let count = 0;
+    const timer = window.setInterval(() => {
+      count += 1;
+
+      if (count >= ROLL_STEPS) {
+        window.clearInterval(timer);
+        setText(value);
+      } else if (count === ROLL_STEPS - 1) {
+        // Scrambled from the value, so every digit still has to move to land.
+        setText(scramble(value));
+      } else {
+        setText((previous) => scramble(previous));
+      }
+    }, STEP_MS);
+
+    return () => window.clearInterval(timer);
+  }, [rolling, value]);
 
   if (!rolling) {
     return (
