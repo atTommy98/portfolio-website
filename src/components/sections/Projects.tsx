@@ -1,6 +1,6 @@
 import ProjectCard from "../ProjectCard";
 import Reveal from "../Reveal";
-import { ProjectCards } from "../../data";
+import { ProjectCards } from "../../constants/projects";
 
 export default function Projects({ id }: SectionProps) {
   return (

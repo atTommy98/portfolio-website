@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import ExperienceCard from "./ExperienceCard";
-import { ExperienceCards } from "../data";
+import { ExperienceCards } from "../constants/experience";
 
 export default function ExperienceTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,8 +25,6 @@ export default function ExperienceTimeline() {
       return;
     }
 
-    // Continuously grow the blue line as the section scrolls past an anchor
-    // line at ~55% down the viewport.
     let raf = 0;
     const update = () => {
       raf = 0;
@@ -36,10 +34,6 @@ export default function ExperienceTimeline() {
       const anchor = window.innerHeight * 0.55;
       const progress = anchor - rect.top;
       setFill(Math.max(0, Math.min(rect.height, progress)));
-
-      // Light each dot as the growing line actually reaches it, rather than
-      // when its row enters the viewport. offsetTop is measured against the
-      // container, and 11px lands on the dot's centre.
       setLit((prev) => {
         const next = rowRefs.current.map(
           (row) => !!row && progress >= row.offsetTop + 11
@@ -84,12 +78,12 @@ export default function ExperienceTimeline() {
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Track (faint full-length line) */}
+      {/* Track */}
       <span
         aria-hidden="true"
         className="absolute left-[11px] top-2 bottom-2 w-0.5 -translate-x-1/2 rounded-full bg-zinc-200 dark:bg-zinc-800 md:left-[15px]"
       />
-      {/* Fill (grows with scroll) */}
+      {/* Fill  */}
       <span
         aria-hidden="true"
         style={{ height: `${fill}px` }}
