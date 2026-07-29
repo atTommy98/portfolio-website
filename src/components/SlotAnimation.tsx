@@ -5,22 +5,26 @@ import { useEffect, useRef, useState } from "react";
 import { SlotText } from "slot-text/react";
 import type { SlotOptions } from "slot-text";
 
-const POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const POOL = "0123456789";
 
-/* skipUnchanged off so every glyph rolls even where the scramble happens to
-   land on the right character. */
+/* skipUnchanged leaves graphemes that match at the same index alone, so only
+   the characters the scramble actually altered — the digits — roll. Safe here
+   because the scramble is the same length as the value, which is the
+   positional alignment the option depends on. */
 const OPTIONS: SlotOptions = {
   direction: "down",
-  skipUnchanged: false,
+  skipUnchanged: true,
 };
 
+/* Every digit is replaced by a different digit, so none of them can be left
+   static by skipUnchanged after landing on their own value by chance. */
 function scramble(value: string): string {
   return Array.from(value)
-    .map((char) =>
-      /[a-z0-9]/i.test(char)
-        ? POOL[Math.floor(Math.random() * POOL.length)]
-        : char
-    )
+    .map((char) => {
+      if (!/[0-9]/.test(char)) return char;
+      const options = POOL.replace(char, "");
+      return options[Math.floor(Math.random() * options.length)];
+    })
     .join("");
 }
 
@@ -28,7 +32,7 @@ function scramble(value: string): string {
    means mounting with a scramble and flipping to the real value a beat later.
    Until then this stays plain text, which keeps the server output and the
    no-JS fallback honest. */
-export default function SlotFact({
+export default function SlotAnimation({
   value,
   className,
 }: {
