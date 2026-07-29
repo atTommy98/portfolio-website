@@ -11,6 +11,7 @@ export default function ExperienceTimeline() {
   const [visible, setVisible] = useState<boolean[]>(
     ExperienceCards.map(() => false)
   );
+  const [lit, setLit] = useState<boolean[]>(ExperienceCards.map(() => false));
 
   useEffect(() => {
     const reduce = window.matchMedia(
@@ -19,6 +20,7 @@ export default function ExperienceTimeline() {
 
     if (reduce) {
       setVisible(ExperienceCards.map(() => true));
+      setLit(ExperienceCards.map(() => true));
       setFill(containerRef.current?.offsetHeight ?? 0);
       return;
     }
@@ -32,7 +34,18 @@ export default function ExperienceTimeline() {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const anchor = window.innerHeight * 0.55;
-      setFill(Math.max(0, Math.min(rect.height, anchor - rect.top)));
+      const progress = anchor - rect.top;
+      setFill(Math.max(0, Math.min(rect.height, progress)));
+
+      // Light each dot as the growing line actually reaches it, rather than
+      // when its row enters the viewport. offsetTop is measured against the
+      // container, and 11px lands on the dot's centre.
+      setLit((prev) => {
+        const next = rowRefs.current.map(
+          (row) => !!row && progress >= row.offsetTop + 11
+        );
+        return next.some((value, i) => value !== prev[i]) ? next : prev;
+      });
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -98,8 +111,8 @@ export default function ExperienceTimeline() {
             {/* Node dot */}
             <span
               aria-hidden="true"
-              className={`absolute left-[11px] top-1 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 transition-colors duration-500 md:left-[15px] md:h-4 md:w-4 ${
-                visible[i]
+              className={`absolute left-[11px] top-1 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 transition-colors duration-300 md:left-[15px] md:h-4 md:w-4 ${
+                lit[i]
                   ? "border-blue-500 bg-blue-500"
                   : "border-zinc-300 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900"
               }`}

@@ -49,7 +49,7 @@ export default function LastShipped({ lastPush }: { lastPush: Date | null }) {
   if (!lastPush) return null;
 
   return (
-    <p className="subtext mt-4 flex items-center leading-normal">
+    <p className="subtext flex items-center whitespace-nowrap leading-normal">
       <span aria-hidden="true" className="relative mr-2 flex h-2 w-2">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75 motion-reduce:animate-none" />
         <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />

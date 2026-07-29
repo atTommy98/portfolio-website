@@ -2,6 +2,7 @@ import AboutTabs, { AboutTab } from "../AboutTabs";
 import LastShipped, { getLastPush } from "../LastShipped";
 import OriginRoute from "../OriginRoute";
 import Reveal from "../Reveal";
+import SlotText from "../SlotText";
 
 /* Scan-level facts — the bit a recruiter actually reads before deciding
    whether to scroll. Every figure is drawn from ExperienceCards in data.js. */
@@ -23,17 +24,13 @@ export default async function About({ id }: SectionProps) {
       id: "now",
       label: "Now",
       content: (
-        <>
-          <p className="maintext text-xs md:text-sm lg:text-base">
-            I&apos;m at <a href="https://alt-design.net">Alt Design</a>, where
-            I&apos;m the primary engineer behind P3RFORM: a multi-platform
-            product (web portal, mobile app and API) that health and performance
-            coaches use to manage their clients and training data. Architecture,
-            infrastructure, deployments and client conversations all sit with
-            me.
-          </p>
-          <LastShipped lastPush={lastPush} />
-        </>
+        <p className="maintext text-xs md:text-sm lg:text-base">
+          I&apos;m at <a href="https://alt-design.net">Alt Design</a>, where
+          I&apos;m the primary engineer behind P3RFORM: a multi-platform product
+          (web portal, mobile app and API) that health and performance coaches
+          use to manage their clients and training data. Architecture,
+          infrastructure, deployments and client conversations all sit with me.
+        </p>
       ),
     },
     {
@@ -76,16 +73,18 @@ export default async function About({ id }: SectionProps) {
               key={fact.label}
               className="rounded-xl border border-zinc-200 bg-white/60 p-4 dark:border-zinc-800 dark:bg-zinc-900/40">
               <p className="text-sm font-bold md:text-base lg:text-lg">
-                {fact.value}
+                <SlotText value={fact.value} />
               </p>
-              <p className="subtext mt-2 leading-normal">{fact.label}</p>
+              <p className="subtext mt-2 leading-normal text-blue-500 dark:text-blue-500">
+                {fact.label}
+              </p>
             </li>
           ))}
         </ul>
       </Reveal>
 
       <Reveal delay={300}>
-        <AboutTabs tabs={tabs} />
+        <AboutTabs tabs={tabs} trailing={<LastShipped lastPush={lastPush} />} />
       </Reveal>
 
       <Reveal delay={400}>
