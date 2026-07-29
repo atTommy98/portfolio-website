@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Tag from "./Tag";
 
 export default function ProjectCard({
   title,
@@ -56,16 +57,10 @@ export default function ProjectCard({
           <p className="maintext">{content}</p>
         </div>
       </div>
-      <ul className="mt-2 flex flex-wrap">
-        {tags.map((tag) => {
-          return (
-            <li key={tag} className="mr-2 mt-2">
-              <div className="flex subtext items-center rounded-full bg-blue-700/70 dark:bg-blue-700/50 px-4 py-1 font-medium leading-5 text-cyan-400 dark:text-cyan-300">
-                {tag}
-              </div>
-            </li>
-          );
-        })}
+      <ul className="mt-4 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
       </ul>
     </div>
   );

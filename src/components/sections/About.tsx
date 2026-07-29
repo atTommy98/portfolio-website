@@ -3,6 +3,8 @@ import LastShipped, { getLastPush } from "../LastShipped";
 import OriginRoute from "../OriginRoute";
 import Reveal from "../Reveal";
 import SlotAnimation from "../SlotAnimation";
+import Tag from "../Tag";
+import { technologies } from "../../constants/technologies";
 
 /* roll marks the tiles whose figures are the point. The other two contain
    digits too (F1, P3RFORM), and those are names rather than numbers. */
@@ -14,7 +16,11 @@ const facts = [
     label: "platforms owned end to end",
     roll: false,
   },
-  { value: "Dyson, F1, Nike, LEGO, P3RFORM", label: "brands built for", roll: false },
+  {
+    value: "Dyson, F1, Nike, LEGO, P3RFORM",
+    label: "brands built for",
+    roll: false,
+  },
 ];
 
 export default async function About({ id }: SectionProps) {
@@ -30,7 +36,8 @@ export default async function About({ id }: SectionProps) {
           I&apos;m the primary engineer behind P3RFORM: a multi-platform product
           (web portal, mobile app and API) that health and performance coaches
           use to manage their clients and training data. Architecture,
-          infrastructure, deployments and client conversations all sit with me.
+          infrastructure, deployments and client conversations mostly sit with
+          me. I also dabble in Laravel & Statamic projects such as <a href="https://www.bandk.co.uk/" className='text-black hover:text-blue-500'>Bowmer + Kirkland</a>.
         </p>
       ),
     },
@@ -44,10 +51,12 @@ export default async function About({ id }: SectionProps) {
       label: "Life",
       content: (
         <p className="maintext text-xs md:text-sm lg:text-base">
-          Away from the keyboard you&apos;ll usually find me in the <span className='text-blue-500'>gym</span>, 
-          <span className='text-blue-500'> producing music</span>, deep in the <span className='text-blue-500'>competitive gaming scene</span> or off
-          <span className='text-blue-500'> travelling</span> having most recently having backpacked through Southeast Asia
-          and Japan.
+          Away from the keyboard you&apos;ll usually find me in the{" "}
+          <span className="text-blue-500">gym</span>,
+          <span className="text-blue-500"> producing music</span>, deep in the{" "}
+          <span className="text-blue-500">competitive gaming scene</span> or off
+          <span className="text-blue-500"> travelling</span> having most
+          recently having backpacked through Southeast Asia and Japan.
         </p>
       ),
     },
@@ -61,7 +70,8 @@ export default async function About({ id }: SectionProps) {
 
       <Reveal delay={100}>
         <p className="mb-6 text-lg font-bold leading-snug md:text-xl lg:text-2xl">
-          I ship full-stack production apps on web, mobile <span className='text-blue-500 uppercase'>and</span> desktop.
+          I ship full-stack production apps on the web, mobile{" "}
+          <span className="text-blue-500 uppercase">and</span> desktop.
         </p>
       </Reveal>
 
@@ -70,18 +80,24 @@ export default async function About({ id }: SectionProps) {
           {facts.map((fact) => (
             <li
               key={fact.label}
-              className="rounded-xl border border-zinc-200 bg-white/60 p-4 dark:border-zinc-800 dark:bg-zinc-900/40">
+              className="rounded-xl border border-zinc-200 bg-white/60 p-4 dark:border-zinc-800 dark:bg-zinc-900/40"
+            >
               <p className="text-sm font-bold md:text-base lg:text-lg">
-                {fact.roll ? (
-                  <SlotAnimation value={fact.value} />
-                ) : (
-                  fact.value
-                )}
+                {fact.roll ? <SlotAnimation value={fact.value} /> : fact.value}
               </p>
               <p className="subtext mt-2 leading-normal text-blue-500 dark:text-blue-500">
                 {fact.label}
               </p>
             </li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <Reveal delay={250}>
+        <p className="subtext mb-3 uppercase tracking-wide">Technologies</p>
+        <ul className="mb-8 flex flex-wrap gap-2">
+          {technologies.map((tech) => (
+            <Tag key={tech}>{tech}</Tag>
           ))}
         </ul>
       </Reveal>
