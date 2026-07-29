@@ -19,6 +19,7 @@ export default function Projects({ id }: SectionProps) {
                 image={project.image}
                 link={project.link}
                 colour={project.colour}
+                fit={project.fit === "contain" ? "contain" : "cover"}
               />
             </Reveal>
           );

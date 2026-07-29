@@ -16,6 +16,7 @@ interface ProjectCardProps {
   content: string;
   link: string;
   colour: string;
+  fit?: "cover" | "contain";
 }
 
 interface SectionProps {
